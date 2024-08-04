@@ -23,8 +23,8 @@ _ide_helper_models.php
 auth.json
 /bootstrap/ssr
 /public/build/*
-!/public/build/default/
+#!/public/build/default/
 /public/theme-assets/*
-!/public/theme-assets/default/
+#!/public/theme-assets/default/
 /resources/*
 !/resources/default/
