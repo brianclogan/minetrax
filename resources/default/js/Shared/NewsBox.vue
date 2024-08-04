@@ -11,9 +11,22 @@
         class="flex justify-between space-y-4"
       >
         <div class="flex-co space-y-1">
-          <span :class="['px-2 py-0.5 inline-flex text-xs leading-5 font-semibold rounded-lg', formatType(news)]">
-            {{ news.type.key }}
-          </span>
+          <span
+            v-if="news.type.value === 0"
+            class="px-2 py-0.5 inline-flex text-xs leading-5 font-semibold rounded-lg bg-light-blue-100 text-light-blue-800 dark:bg-light-blue-700 dark:bg-opacity-25 dark:text-light-blue-400"
+          >{{ news.type.key }}</span>
+          <span
+            v-else-if="news.type.value === 1"
+            class="px-2 py-0.5 inline-flex text-xs leading-5 font-semibold rounded-lg bg-orange-100 text-orange-800 dark:bg-orange-700 dark:bg-opacity-25 dark:text-orange-400"
+          >{{ news.type.key }}</span>
+          <span
+            v-else-if="news.type.value === 2"
+            class="px-2 py-0.5 inline-flex text-xs leading-5 font-semibold rounded-lg bg-green-100 text-green-800 dark:bg-green-700 dark:bg-opacity-25 dark:text-green-400"
+          >{{ news.type.key }}</span>
+          <span
+            v-else
+            class="px-2 py-0.5 inline-flex text-xs leading-5 font-semibold rounded-lg bg-gray-100 text-gray-800 dark:bg-gray-700 dark:bg-opacity-25 dark:text-gray-400"
+          >{{ news.type.key }}</span>
 
           <p class="font-semibold leading-5 text-gray-800 dark:text-gray-300">
             <inertia-link
@@ -55,17 +68,16 @@ export default {
     },
     methods: {
         formatType(news) {
-            switch(news.type.key) {
+            switch(news.type.value) {
             case 0:
                 return 'bg-light-blue-100 text-light-blue-800 dark:bg-light-blue-700 dark:bg-opacity-25 dark:text-light-blue-400';
             case 1:
                 return 'bg-orange-100 text-orange-800 dark:bg-orange-700 dark:bg-opacity-25 dark:text-orange-400';
             case 2:
                 return 'bg-green-100 text-green-800 dark:bg-green-700 dark:bg-opacity-25 dark:text-green-400';
-            case 3:
-                return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:bg-opacity-25 dark:text-gray-400';
             default:
-                return 'bg-light-blue-100 text-light-blue-800 dark:bg-light-blue-700 dark:bg-opacity-25 dark:text-light-blue-400';
+                return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:bg-opacity-25 dark:text-gray-400';
+
             }
         }
     }
