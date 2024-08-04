@@ -30,8 +30,8 @@ class Helper
             }
         }
 
-        $str_minutes = ($minutes === 1) ? 'minute' : 'minutes';
-        $str_seconds = ($seconds === 1) ? 'second' : 'seconds';
+        $str_minutes = ($minutes >= 1) ? 'minute' : 'minutes';
+        $str_seconds = ($seconds >= 1) ? 'second' : 'seconds';
 
         if ($showSeconds) {
             if ($minutes === 0) {
