@@ -38,9 +38,6 @@ Route::middleware(['forbid-banned-user', 'redirect-uncompleted-user'])->group(fu
     Route::get('@{user:username}', [\App\Http\Controllers\UserController::class, 'showProfile'])->name('user.public.get');
     Route::get('/staff-members', [\App\Http\Controllers\UserController::class, 'indexStaff'])->name('staff.index');
 
-    Route::get('pages/{customPage:path}', [\App\Http\Controllers\CustomPageController::class, 'show'])->name('custom-page.show.long');
-    Route::get('p/{customPage:path}', [\App\Http\Controllers\CustomPageController::class, 'show'])->name('custom-page.show');
-
     Route::get('search', [\App\Http\Controllers\SearchController::class, 'search'])->name('search');
 
     Route::get('auth/{provider}', [\App\Http\Controllers\SocialAuthController::class, 'redirect'])->name('social.login')->middleware('guest');
@@ -317,4 +314,9 @@ Route::middleware(['auth:sanctum', 'verified-if-enabled', 'forbid-banned-user', 
     Route::post('command-queue', [\App\Http\Controllers\Admin\CommandQueueController::class, 'store'])->name('command-queue.store');
     Route::delete('command-queue', [\App\Http\Controllers\Admin\CommandQueueController::class, 'destroy'])->name('command-queue.delete');
     Route::post('command-queue/retry', [\App\Http\Controllers\Admin\CommandQueueController::class, 'retry'])->name('command-queue.retry');
+});
+Route::middleware(['forbid-banned-user', 'redirect-uncompleted-user'])->group(function () {
+    Route::get('pages/{customPage:path}', [\App\Http\Controllers\CustomPageController::class, 'show'])->name('custom-page.show.long');
+    Route::get('p/{customPage:path}', [\App\Http\Controllers\CustomPageController::class, 'show'])->name('custom-page.show.short');
+    Route::get('{customPage:path}', [\App\Http\Controllers\CustomPageController::class, 'show'])->name('custom-page.show');
 });
