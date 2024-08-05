@@ -62,6 +62,7 @@ class GeneralSettingController extends Controller
             'header_broadcast_text' => 'nullable|string|max:1000',
             'header_broadcast_url' => 'nullable|url|max:1000',
             'enable_topplayersbox' => 'required|boolean',
+            'show_uuids' => 'required|bool',
         ]);
         $settings->site_name = $request->input('site_name');
         $settings->enable_mcserver_onlineplayersbox = $request->input('enable_mcserver_onlineplayersbox');
@@ -105,6 +106,8 @@ class GeneralSettingController extends Controller
         $settings->header_broadcast_url = $request->input('header_broadcast_url') ?? null;
 
         $settings->enable_topplayersbox = $request->input('enable_topplayersbox');
+
+        $settings->show_uuids = $request->input('show_uuids');
 
         // Has Photo?
         if ($request->hasFile('photo_light')) {

@@ -82,7 +82,7 @@
                   </div>
                   <div class="ml-4">
                     <inertia-link
-                      v-tippy
+                      :v-tippy="$page.props.generalSettings.show_uuids"
                       as="div"
                       :href="route('player.show', player.uuid)"
                       class="text-sm text-gray-900 focus:outline-none cursor-pointer hover:underline"

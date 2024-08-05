@@ -207,6 +207,17 @@
 
                           <div class="flex items-center col-span-6 sm:col-span-3">
                             <x-checkbox
+                              id="show_uuids"
+                              v-model="form.show_uuids"
+                              :label="__('Show UUIDs')"
+                              :help="__('Show the player UUIDs on the site')"
+                              name="show_uuids"
+                              :error="form.errors.show_uuids"
+                            />
+                          </div>
+
+                          <div class="flex items-center col-span-6 sm:col-span-3">
+                            <x-checkbox
                               id="enable_topplayersbox"
                               v-model="form.enable_topplayersbox"
                               :label="__('Top Players Box')"
@@ -623,7 +634,9 @@
                           </div>
                         </div>
                       </div>
-                      <div class="flex justify-end px-4 py-3 bg-gray-50 dark:bg-cool-gray-800 sm:px-6">
+                      <div
+                        class="flex justify-end px-4 py-3 bg-gray-50 dark:bg-cool-gray-800 sm:px-6"
+                      >
                         <loading-button
                           :loading="form.processing"
                           class="inline-flex justify-center px-4 py-2 text-sm font-bold text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500 disabled:opacity-50 dark:bg-cool-gray-700 dark:hover:bg-cool-gray-600"
@@ -652,7 +665,7 @@ import XInput from '@/Components/Form/XInput.vue';
 import Icon from '@/Components/Icon.vue';
 import EasyMDE from 'easymde';
 import XCheckbox from '@/Components/Form/XCheckbox.vue';
-import { useForm } from '@inertiajs/vue3';
+import {useForm} from '@inertiajs/vue3';
 import AdminLayout from '@/Layouts/AdminLayout.vue';
 
 export default {
@@ -712,6 +725,7 @@ export default {
                 photo_dark: null,
                 header_broadcast_text: this.settings.header_broadcast_text,
                 header_broadcast_url: this.settings.header_broadcast_url,
+                show_uuids: this.settings.show_uuids
             }),
             photoPreview: null,
             photoPreviewDark: null,

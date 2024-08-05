@@ -49,6 +49,7 @@ class GeneralSettings extends Settings
     public ?string $header_broadcast_text;
     public ?string $header_broadcast_url;
     public bool $enable_topplayersbox;
+    public ?bool $show_uuids;
 
     public static function group(): string
     {

@@ -21,7 +21,7 @@
             :href="route('staff.index')"
             class="font-semibold hover:underline"
           >
-            {{ __("Please contact a Staff") }}
+            {{ __("Please contact a staff member") }}
           </inertia-link>.
         </template>
       </AlertCard>

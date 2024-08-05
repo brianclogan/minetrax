@@ -155,7 +155,7 @@
               <h1 class="text-2xl text-gray-800 dark:text-gray-200 font-extrabold">
                 {{ player.username }}
               </h1>
-              <h2 class="text-gray-400 font-semibold text-xs md:text-sm">
+              <h2 class="text-gray-400 font-semibold text-xs md:text-sm" v-if="$page.props.generalSettings.show_uuids">
                 {{ player.uuid }}
               </h2>
             </div>
